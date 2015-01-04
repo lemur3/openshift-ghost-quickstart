@@ -11,7 +11,9 @@ Note these OpenShift specific changes carried over from the original quickstart:
 1. The content/data and content/images directories have been removed.  They are created on the server and symlinked to your $OPENSHIFT\_DATA\_DIR so that posts and uploaded images will persist across 'git pushes'
 2. Even though the node.js cartridge itself is scalable, this application will not play nice with scaling right now because the images are stored on disk, and since OpenShift does not currently support shared physical disk storage across scaled gears, this cartridge will not scale.
 4. Upon completion of the install you'll want to use a secure connection to https://yourappname-yourdomain.rhcloud.com/ghost/ in order to set up your administrator account. You may get a blank page if you connect to http://.
-5. If you use a custom domain, modify the production url field in config.js file.
+5. If you use a custom domain, modify the "url:" field in the 'production' section of the config.js file, it should look something like:
+        url: 'http://www.example.com',
+(with the comma at the end)
 
 ---
 
