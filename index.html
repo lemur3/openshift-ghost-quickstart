@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Openshift-ghost-postgres-quickstart by lemur3</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Openshift-ghost-postgres-quickstart</h1>
+        <h2>Ghost QuickStart for OpenShift using PostgreSQL</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/lemur3/openshift-ghost-postgres-quickstart/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/lemur3/openshift-ghost-postgres-quickstart/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/lemur3/openshift-ghost-postgres-quickstart" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <p>This is a fork of <a href="https://github.com/openshift-quickstart/openshift-ghost-quickstart">the original ghost quickstart available on openshift</a>. It is a basic quickstart to get Ghost running on OpenShift. It uses PostgreSQL as a database instead of SQLite3. It has been updated from Ghost 0.5 to 0.5.7.</p>
+
+<p>To install it from the command line make sure you have the latest rhc gem installed and then run the following command: replacing 'ghost' if you want your app to be named something else</p>
+
+<pre><code>rhc app create ghost nodejs-0.10 postgresql-9.2 --env NODE_ENV=production --from-code https://github.com/lemur3/openshift-ghost-postgres-quickstart.git
+</code></pre>
+
+<p>'ghost' will be the name of your application in the above example.</p>
+
+<p>Note these OpenShift specific changes carried over from the original quickstart:</p>
+
+<ol>
+<li>The content/data and content/images directories have been removed.  They are created on the server and symlinked to your $OPENSHIFT_DATA_DIR so that posts and uploaded images will persist across 'git pushes'</li>
+<li>Even though the node.js cartridge itself is scalable, this application will not play nice with scaling right now because the images are stored on disk, and since OpenShift does not currently support shared physical disk storage across scaled gears, this cartridge will not scale.</li>
+<li>Upon completion of the install you'll want to use a secure connection to <a href="https://yourappname-yourdomain.rhcloud.com/ghost/">https://yourappname-yourdomain.rhcloud.com/ghost/</a> in order to set up your administrator account. You may get a blank page if you connect to http://.</li>
+<li>If you use a custom domain, modify the "url:" field in the 'production' section of the config.js file, it should look something like:
+    url: '<a href="http://www.example.com">http://www.example.com</a>',
+(with the comma at the end)</li>
+</ol>
+
+<hr>
+
+<p>Visit the <a href="https://github.com/TryGhost/Ghost">Ghost</a> Github for more info about Ghost and to get involved.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/120485/4828504/9e832764-5f80-11e4-8ac1-0332bcc67a35.png" alt="Ghost Screenshot"></p>
+
+<p>Ghost is a free, open, simple blogging platform that's available to anyone who wants to use it. Lovingly created and maintained by <a href="http://twitter.com/JohnONolan">John O'Nolan</a> + <a href="http://twitter.com/ErisDS">Hannah Wolfe</a> + an amazing group of <a href="https://github.com/TryGhost/Ghost/contributors">contributors</a>.</p>
+
+<p>Visit the project's website at <a href="http://ghost.org">http://ghost.org</a> • docs on <a href="http://support.ghost.org">http://support.ghost.org</a>.</p>
+
+<h2>
+<a id="ghost-copyright--license" class="anchor" href="#ghost-copyright--license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ghost Copyright &amp; License</h2>
+
+<p>Copyright (c) 2013-2015 Ghost Foundation - Released under the <a href="LICENSE">MIT license</a>.</p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
