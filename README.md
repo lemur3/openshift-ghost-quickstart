@@ -1,4 +1,4 @@
-This is a fork of [the original ghost quickstart available on openshift](https://github.com/openshift-quickstart/openshift-ghost-quickstart). It is a basic quickstart to get Ghost running on OpenShift. It uses PostgreSQL as a database instead of SQLite3. It has been updated from Ghost 0.5 to 0.5.7.
+This is a fork of [the original ghost quickstart available on openshift](https://github.com/openshift-quickstart/openshift-ghost-quickstart). It is a basic quickstart to get Ghost running on OpenShift. It uses PostgreSQL as a database instead of SQLite3. It has been updated from Ghost 0.5 to 0.5.8.
 
 To install it from the command line make sure you have the latest rhc gem installed and then run the following command: replacing 'ghost' if you want your app to be named something else
 
